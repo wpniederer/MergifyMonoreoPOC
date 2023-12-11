@@ -10,5 +10,17 @@
   },
   "volta": {
     "node": "18.17.1"
+  },
+  "repository": "wpniederer/MergifyMonorepoPOC",
+  "author": "AutoRelease <actions@github.com>",
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "conventional-commits",
+      "first-time-contributor",
+      "released"
+    ],
+    "onlyPublishWithReleaseLabel": true
   }
 }
