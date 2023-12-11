@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "auto": "^11.0.4",
     "lerna": "^7.1.5"
   },
   "volta": {
