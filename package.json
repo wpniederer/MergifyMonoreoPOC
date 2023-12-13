@@ -5,9 +5,29 @@
     "packages/*"
   ],
   "devDependencies": {
+    "auto": "^11.0.4",
     "lerna": "^7.1.5"
   },
   "volta": {
     "node": "18.17.1"
+  },
+  "scripts": {
+  "build": "lerna run build",
+  "release": "auto shipit",
+  "check-pr": "auto pr-check",
+  "version": "lerna version --yes",
+  "publish": "lerna publish from-git --yes"
+  },
+  "repository": "wpniederer/MergifyMonorepoPOC",
+  "author": "AutoRelease <actions@github.com>",
+  "auto": {
+    "plugins": [
+      "npm",
+      "all-contributors",
+      "conventional-commits",
+      "first-time-contributor",
+      "released"
+    ],
+    "onlyPublishWithReleaseLabel": true
   }
 }
