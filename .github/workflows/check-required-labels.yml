@@ -16,7 +16,7 @@ jobs:
           mode: exactly
           count: 1
           labels: "patch, minor, major, skip-release"
-          exit_type: success
+          exit_type: failure
       - id: check-release-labels
         name: check-release-labels
         uses: mheap/github-action-required-labels@v2
@@ -24,5 +24,5 @@ jobs:
           mode: exactly
           count: 1
           labels: "release, skip-release"
-          exit_type: success
+          exit_type: failure
 
