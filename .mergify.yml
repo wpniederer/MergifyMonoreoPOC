@@ -5,8 +5,8 @@ pull_request_rules:
       -  check-success=check-required-labels
       -  base=main
     actions:
-      merge:
-        method: merge
+      queue:
+        merge_method: merge
   - name: dismiss reviews when review is requested
     conditions:
       - base=main
