@@ -6,3 +6,25 @@ pull_request_rules:
       - "base=main"
     actions:
       merge:
+        method: merge
+  - name: dismiss reviews when review is requested
+    conditions:
+      - base=main
+    actions:
+      dismiss_reviews:
+        approved: from_requested_reviewers
+        changes_requested: from_requested_reviewers
+        when: always
+        message: "Review dismissed due to new review request."
+queue_rules:
+  - name: urgent
+    # This can be queued before CI finishes its first run if the PR has the urgent label
+    queue_conditions:
+      - label = urgent
+    # We still want the CI to pass to merge the PR
+    merge_conditions:
+      - check-success = check-success=check-required-labels
+  - name: standard
+    # CI is needed for queueing and merging the PR
+    queue_conditions:
+      - check-success = check-success=check-required-labels
