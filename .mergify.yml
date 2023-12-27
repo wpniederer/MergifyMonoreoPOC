@@ -2,7 +2,6 @@ pull_request_rules:
   - name: "Automatic merge when CI passes and approved"
     conditions:
       - "#approved-reviews-by>=1"
-      -  check-success=check-required-labels
       -  base=main
     actions:
       queue:
@@ -23,8 +22,8 @@ queue_rules:
       - label = urgent
     # We still want the CI to pass to merge the PR
     merge_conditions:
-      - check-success=wait
+      -  check-success=check-required-labels
   - name: standard
     # CI is needed for queueing and merging the PR
     queue_conditions:
-      - check-success=wait
+      -  check-success=check-required-labels
