@@ -8,4 +8,4 @@ jobs:
   wait:
     runs-on: ubuntu-latest
     steps:
-      run: sleep 60s
+      - run: sleep 180s
