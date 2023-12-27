@@ -2,8 +2,7 @@ name: Wait
 
 on:
   push:
-    branches:
-      - main
+
 jobs:
   wait:
     runs-on: ubuntu-latest
