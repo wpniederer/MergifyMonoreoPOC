@@ -23,8 +23,8 @@ queue_rules:
       - label = urgent
     # We still want the CI to pass to merge the PR
     merge_conditions:
-      - check-success=check-required-labels
+      - check-success=wait
   - name: standard
     # CI is needed for queueing and merging the PR
     queue_conditions:
-      - check-success=check-required-labels
+      - check-success=wait
