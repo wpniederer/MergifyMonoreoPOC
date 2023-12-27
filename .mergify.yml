@@ -1,4 +1,12 @@
 pull_request_rules:
+  - name: "Automatic merge when CI passes and approved"
+    conditions:
+      - "#approved-reviews-by>=1"
+      -  check-success=check-required-labels
+      -  base=main
+    actions:
+      queue:
+        merge_method: merge
   - name: Dismiss reviews when review is requested
     conditions:
       - base=main
@@ -16,13 +24,7 @@ queue_rules:
     # We still want the CI to pass to merge the PR
     merge_conditions:
       -  check-success=check-required-labels
-      - "#approved-reviews-by>=1"
-      -  base=main
   - name: standard
     # CI is needed for queueing and merging the PR
     queue_conditions:
       -  check-success=check-required-labels
-    merge_conditions:
-      - "#approved-reviews-by>=1"
-      -  base=main
-
